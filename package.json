@@ -8,6 +8,7 @@
     "format": "turbo run format"
   },
   "devDependencies": {
+    "@solo-ui/lint-config": "workspace:*",
     "turbo": "latest"
   },
   "packageManager": "pnpm@10.7.0"
