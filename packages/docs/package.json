@@ -1,0 +1,29 @@
+{
+  "name": "@solo-ui/docs",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@solo-ui/react": "workspace:*",
+    "@solo-ui/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@solo-ui/ts-config": "workspace:*",
+    "@storybook/react": "latest",
+    "@storybook/react-vite": "latest",
+    "storybook": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest",
+    "@biomejs/biome": "latest"
+  }
+}

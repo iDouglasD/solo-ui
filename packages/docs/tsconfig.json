@@ -1,0 +1,4 @@
+{
+  "extends": "@solo-ui/ts-config/react.json",
+  "include": [".storybook/**/*"]
+}
