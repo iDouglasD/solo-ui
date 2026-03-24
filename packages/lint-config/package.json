@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": false,
   "license": "MIT",
+  "exports": {
+    "./biome": "./biome.json"
+  },
   "files": ["biome.json"],
   "devDependencies": {
     "@biomejs/biome": "latest"
