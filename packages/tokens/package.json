@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@solo-ui/ts-config": "workspace:*",
-    "tsup": "latest",
-    "typescript": "latest",
-    "@biomejs/biome": "latest"
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "@biomejs/biome": "^2.4.8"
   }
 }

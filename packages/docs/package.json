@@ -16,14 +16,14 @@
   },
   "devDependencies": {
     "@solo-ui/ts-config": "workspace:*",
-    "@storybook/react": "latest",
-    "@storybook/react-vite": "latest",
-    "storybook": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "typescript": "latest",
-    "@biomejs/biome": "latest"
+    "@storybook/react": "^10.3.3",
+    "@storybook/react-vite": "^10.3.3",
+    "storybook": "^10.3.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.2",
+    "@biomejs/biome": "^2.4.8"
   }
 }

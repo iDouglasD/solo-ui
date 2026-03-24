@@ -8,6 +8,6 @@
   },
   "files": ["biome.json"],
   "devDependencies": {
-    "@biomejs/biome": "latest"
+    "@biomejs/biome": "^2.4.8"
   }
 }

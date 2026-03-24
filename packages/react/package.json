@@ -32,12 +32,12 @@
   },
   "devDependencies": {
     "@solo-ui/ts-config": "workspace:*",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "react": "latest",
-    "tsup": "latest",
-    "typescript": "latest",
-    "@biomejs/biome": "latest"
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "@biomejs/biome": "^2.4.8"
   },
   "peerDependencies": {
     "react": ">=18",
