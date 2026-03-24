@@ -21,6 +21,8 @@ importers:
         specifier: latest
         version: 2.4.8
 
+  packages/ts-config: {}
+
 packages:
 
   '@biomejs/biome@2.4.8':
