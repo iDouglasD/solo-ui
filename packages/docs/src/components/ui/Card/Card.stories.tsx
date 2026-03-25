@@ -21,36 +21,36 @@ export const Default: Story = {
     <Card className="max-w-sm">
       <Card.Header
         title="git — conventional commits"
-        description="// o custo real de um histórico de git bagunçado"
+        description="// the real cost of a messy git history"
       />
       <Card.Content>
-        <p className="text-muted text-xs">Conteúdo livre do card.</p>
+        <p className="text-muted text-xs">Free card content.</p>
       </Card.Content>
       <Card.Footer>5 commits</Card.Footer>
     </Card>
   ),
 }
 
-export const SemFooter: Story = {
+export const WithoutFooter: Story = {
   render: () => (
     <Card className="max-w-sm">
       <Card.Header
         title="git — conventional commits"
-        description="// o custo real de um histórico de git bagunçado"
+        description="// the real cost of a messy git history"
       />
       <Card.Content>
-        <p className="text-muted text-xs">Card sem footer.</p>
+        <p className="text-muted text-xs">Card without footer.</p>
       </Card.Content>
     </Card>
   ),
 }
 
-export const SemDescricao: Story = {
+export const WithoutDescription: Story = {
   render: () => (
     <Card className="max-w-sm">
-      <Card.Header title="apenas título" />
+      <Card.Header title="title only" />
       <Card.Content>
-        <p className="text-muted text-xs">Header sem description.</p>
+        <p className="text-muted text-xs">Header without description.</p>
       </Card.Content>
     </Card>
   ),

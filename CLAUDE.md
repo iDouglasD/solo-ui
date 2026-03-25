@@ -51,3 +51,12 @@ Use `"workspace:*"` for internal package references (e.g., `"@solo-ui/tokens": "
 
 - Do not use inline styles in components. Example to avoid: `style={{ width: 400 }}`. Use Tailwind classes instead.
 - Do not use hex colors directly in classNames. Example to avoid: `bg-[#ff5f57]`. Always use color tokens from `@solo-ui/tokens`.
+
+## Stories Language Convention
+
+All stories must use **English only** for:
+- Export identifiers (e.g., `WithoutFooter`, not `SemFooter`)
+- JSX string props (titles, descriptions, content)
+- Example text and comments
+
+This ensures consistency across the design system documentation and makes it accessible to international contributors.
