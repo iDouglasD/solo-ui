@@ -13,7 +13,7 @@ React component library package. Built with tsup (JS) + Tailwind CLI (CSS), publ
 ## Component Conventions
 
 - Components live in `src/components/ui/<ComponentName>/index.tsx`
-- Stories colocated: `src/components/ui/<ComponentName>/<ComponentName>.stories.tsx`
+- Stories live in `@solo-ui/docs` — see `packages/docs/src/components/ui/<ComponentName>/`
 - Export all components from `src/index.ts`
 - Define variants with CVA, apply classes with `cn()`
 - The `"use client"` directive is handled by the tsup banner — do not add it manually per file
@@ -35,6 +35,5 @@ Extends `@solo-ui/ts-config/react.json`. The `ignoreDeprecations: "6.0"` in `tsc
 ## Adding Components
 
 1. Create `src/components/ui/<ComponentName>/index.tsx`
-2. Create `src/components/ui/<ComponentName>/<ComponentName>.stories.tsx`
-3. Export from `src/index.ts`
-4. Run `pnpm --filter @solo-ui/ui build` to verify
+2. Export from `src/index.ts`
+3. Run `pnpm --filter @solo-ui/ui build` to verify
