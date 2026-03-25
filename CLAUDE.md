@@ -22,14 +22,14 @@ Always use **pnpm**. Never use npm or yarn.
 
 | Script | Command | Description |
 |--------|---------|-------------|
-| Build all | `pnpm build` | Topological: tokens → react → docs |
+| Build all | `pnpm build` | Topological: tokens → ui → docs |
 | Lint all | `pnpm lint` | Biome check across all packages |
 | Format all | `pnpm format` | Biome format --write across all packages |
 | Dev | `pnpm dev` | Storybook dev server |
 
 ## Package Naming
 
-All packages use the `@solo-ui/` scope. Published packages: `@solo-ui/react`, `@solo-ui/tokens`, `@solo-ui/ts-config`, `@solo-ui/lint-config`. The `@solo-ui/docs` package is private (not published).
+All packages use the `@solo-ui/` scope. Published packages: `@solo-ui/ui`, `@solo-ui/tokens`, `@solo-ui/ts-config`, `@solo-ui/lint-config`. The `@solo-ui/docs` package is private (not published).
 
 ## Versioning
 
