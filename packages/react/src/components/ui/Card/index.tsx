@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import type React from 'react'
 import { cn } from '../../../lib/cn'
 
@@ -15,9 +15,9 @@ const cardVariants = cva('rounded-lg border overflow-hidden font-mono text-sm', 
 
 // ─── Card (root) ─────────────────────────────────────────────────────────────
 
-interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardVariants> {}
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: 'default' | null
+}
 
 function Card({ className, variant, children, ...rest }: CardProps) {
   return (
@@ -39,7 +39,7 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
   return (
     <div className={cn('bg-elevated border-b border-border px-4 py-3', className)}>
       {/* Traffic-light dots — decorative */}
-      <div className="flex items-center gap-2 mb-3">
+      <div className="flex items-center mb-3">
         <span aria-hidden="true" className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
           <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
