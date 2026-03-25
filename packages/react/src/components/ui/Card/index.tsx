@@ -16,7 +16,7 @@ const cardVariants = cva('rounded-lg border overflow-hidden font-mono text-sm', 
 // ─── Card (root) ─────────────────────────────────────────────────────────────
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | null
+  variant?: 'default'
 }
 
 function Card({ className, variant, children, ...rest }: CardProps) {

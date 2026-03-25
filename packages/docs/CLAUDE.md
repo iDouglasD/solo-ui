@@ -1,10 +1,11 @@
 # @solo-ui/docs
 
-Storybook 8 documentation package. Private — not published to NPM.
+Storybook 10 documentation package. Private — not published to NPM.
 
 ## Stack
 
 - **Storybook 10** with `@storybook/react-vite` framework
+- **Tailwind CSS v4** via `@tailwindcss/vite` plugin
 - Stories live in `packages/react/src/` (not here)
 - This package only contains Storybook configuration
 
@@ -29,9 +30,10 @@ Stories are colocated with components in `packages/react/src/`:
 ```
 packages/react/src/
   components/
-    Button/
-      index.tsx
-      Button.stories.tsx   ← story lives here
+    ui/
+      Card/
+        index.tsx
+        Card.stories.tsx   ← story lives here
 ```
 
 The glob pattern in `.storybook/main.ts` picks them up automatically:
