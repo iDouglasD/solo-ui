@@ -1,25 +1,27 @@
 # @solo-ui/tokens
 
-Design tokens package. TypeScript is the source of truth; CSS variables are generated from it.
+Design tokens package. TypeScript is the source of truth; CSS variables are maintained in sync manually until a build script is added.
 
 ## Architecture
 
 - **Source:** TypeScript objects in `src/` (typed, tree-shakeable)
+- **CSS:** `styles/tokens.css` — Tailwind v4 `@theme` block, maintained manually in sync with TS source
 - **Build output:** ESM + CJS via tsup
-- **Future:** A build script will generate `styles/tokens.css` (CSS variables) from the TS source — not implemented yet
 
-## Token Structure (future)
+## Token Structure
 
-Tokens should be organized by category:
+Tokens are organized by category:
 
 ```
 src/
-  colors.ts
-  spacing.ts
-  typography.ts
-  radii.ts
-  shadows.ts
+  colors.ts     ← implemented
+  spacing.ts    ← future
+  typography.ts ← future
+  radii.ts      ← future
+  shadows.ts    ← future
   index.ts      ← re-exports all categories
+styles/
+  tokens.css    ← Tailwind v4 @theme block
 ```
 
 ## Build
@@ -37,7 +39,10 @@ Extends `@solo-ui/ts-config/base.json`. The `ignoreDeprecations: "6.0"` in `tsco
 ## Consuming Tokens
 
 ```ts
-import { tokens } from '@solo-ui/tokens'
+import { colors } from '@solo-ui/tokens'
 ```
 
-CSS variables (future): `import '@solo-ui/tokens/styles/tokens.css'`
+CSS (Tailwind v4):
+```css
+@import '@solo-ui/tokens/styles/tokens.css';
+```

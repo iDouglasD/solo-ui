@@ -1,5 +1,5 @@
 {
-  "name": "@solo-ui/react",
+  "name": "@solo-ui/ui",
   "version": "0.0.0",
   "private": false,
   "license": "MIT",
@@ -17,27 +17,33 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
-    }
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tailwindcss -i src/styles/index.css -o dist/styles.css --minify",
     "lint": "biome check .",
     "format": "biome format --write ."
   },
   "dependencies": {
-    "@solo-ui/tokens": "workspace:*"
+    "@solo-ui/tokens": "workspace:*",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
     "@solo-ui/ts-config": "workspace:*",
+    "@tailwindcss/cli": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "react": "^19.2.4",
+    "tailwindcss": "^4.2.2",
     "tsup": "^8.5.1",
-    "typescript": "^6.0.2",
-    "@biomejs/biome": "^2.4.8"
+    "typescript": "^6.0.2"
   },
   "peerDependencies": {
     "react": ">=18",
