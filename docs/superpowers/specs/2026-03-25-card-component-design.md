@@ -24,9 +24,14 @@ The directory `packages/react/` stays as-is. Only `package.json` changes:
 }
 ```
 
-All internal workspace references updated accordingly.
+All internal workspace references updated accordingly. Files that reference `@solo-ui/react` and must be updated:
 
-### New export path for CSS
+- `packages/docs/package.json` — `dependencies`
+- `packages/docs/CLAUDE.md` — component example reference
+
+This is a breaking change — a changeset must be created for the rename before merging to main.
+
+### New export paths
 
 ```json
 "exports": {
@@ -48,9 +53,19 @@ packages/react/
     components/
       ui/
         Card/
-          index.tsx       ← Card + all sub-components
-    index.ts              ← re-exports Card
-  package.json            ← name: "@solo-ui/ui"
+          index.tsx           ← Card + all sub-components
+          Card.stories.tsx    ← colocated story (picked up by Storybook glob)
+    lib/
+      cn.ts                   ← cn() utility (clsx + tailwind-merge)
+    styles/
+      index.css               ← Tailwind CSS entry point for the package build
+    index.ts                  ← re-exports Card
+  package.json                ← name: "@solo-ui/ui"
+```
+
+The Storybook glob in `packages/docs/.storybook/main.ts` already covers this path:
+```ts
+stories: ['../../react/src/**/*.stories.@(ts|tsx)']
 ```
 
 ---
@@ -97,23 +112,48 @@ Terminal/hacker dark mode aesthetic. Reference: macOS-style window frame with co
 
 | Component | Prop | Type | Required | Notes |
 |---|---|---|---|---|
-| `Card` | `className` | `string` | no | Merged via `cn()` |
 | `Card` | `children` | `ReactNode` | yes | |
+| `Card` | `variant` | `"default"` | no | CVA variant, defaults to `"default"` |
+| `Card` | `className` | `string` | no | Merged via `cn()` |
 | `Card.Header` | `title` | `string` | yes | |
-| `Card.Header` | `description` | `string` | no | Rendered as comment-style text |
+| `Card.Header` | `description` | `string` | no | Consumer is responsible for the `//` prefix if desired |
 | `Card.Header` | `className` | `string` | no | |
 | `Card.Content` | `children` | `ReactNode` | yes | |
 | `Card.Content` | `className` | `string` | no | |
 | `Card.Footer` | `children` | `ReactNode` | yes | |
 | `Card.Footer` | `className` | `string` | no | |
 
-**The 3 colored dots (red, yellow, green) are always rendered in `Card.Header` — no prop, no toggle.** They are part of the visual identity.
+**The 3 colored dots (red, yellow, green) are always rendered in `Card.Header` — no prop, no toggle.** They are decorative and will have `aria-hidden="true"`.
+
+### HTML elements
+
+| Component | Element | Notes |
+|---|---|---|
+| `Card` | `<div>` | Spreads `...rest` HTML div props |
+| `Card.Header` | `<div>` | |
+| `Card.Content` | `<div>` | |
+| `Card.Footer` | `<div>` | |
 
 ### Valid compositions
 
 - `Card` + `Card.Header` + `Card.Content` — minimum valid usage
 - `Card.Footer` is optional
 - `Card.Header description` is optional
+
+---
+
+## Utilities
+
+### `cn()` — `src/lib/cn.ts`
+
+```ts
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
 
 ---
 
@@ -128,12 +168,14 @@ Terminal/hacker dark mode aesthetic. Reference: macOS-style window frame with co
 ### New dependencies for `@solo-ui/ui`
 
 ```
-class-variance-authority
-clsx
-tailwind-merge
-tailwindcss        (devDep — for CSS build)
-@tailwindcss/cli   (devDep — for CSS build step)
+class-variance-authority   (dep)
+clsx                       (dep)
+tailwind-merge             (dep)
+tailwindcss                (devDep — for CSS build step)
+@tailwindcss/cli           (devDep — for CSS build step)
 ```
+
+Pin all versions with `^X.Y.Z` per project convention. Check the installed version after adding.
 
 ### CVA usage (Card root example)
 
@@ -151,6 +193,13 @@ const cardVariants = cva(
 )
 ```
 
+### Tailwind CSS entry point — `src/styles/index.css`
+
+```css
+@import "tailwindcss";
+@import "@solo-ui/tokens/styles/tokens.css";
+```
+
 ### Shipped CSS artefact
 
 The package build generates `dist/styles.css` — a pre-compiled CSS file containing all Tailwind utilities used by the components plus the `@theme` token definitions. This makes the package self-contained: consumers do not need to configure Tailwind in their own project.
@@ -159,6 +208,16 @@ Consumer usage:
 ```ts
 import '@solo-ui/ui/styles.css'
 ```
+
+### Build sequence and `clean: true`
+
+The `build` script runs two steps in order:
+
+```json
+"build": "tsup && tailwindcss -i src/styles/index.css -o dist/styles.css --minify"
+```
+
+`tsup` runs first with `clean: true`, which wipes `dist/`. The Tailwind CLI then outputs `dist/styles.css` into the already-built `dist/`. This order is correct. Running `tsup` alone (without the full build script) will produce a `dist/` without `dist/styles.css` — this is expected for local development.
 
 ---
 
@@ -179,6 +238,11 @@ export const colors = {
 } as const
 ```
 
+Update `src/index.ts` to re-export:
+```ts
+export { colors } from './colors'
+```
+
 ### CSS output (`styles/tokens.css`)
 
 ```css
@@ -196,9 +260,12 @@ export const colors = {
 
 Both are maintained manually for now. A build script to auto-generate the CSS from TS is a future concern — the structure is already in place.
 
-### New export path for `@solo-ui/tokens`
+### `@solo-ui/tokens` package.json changes
+
+Add `"styles"` to the `files` array (so the CSS file is included in the published package):
 
 ```json
+"files": ["dist", "styles"],
 "exports": {
   ".": { ... },
   "./styles/tokens.css": "./styles/tokens.css"
@@ -211,19 +278,21 @@ Both are maintained manually for now. A build script to auto-generate the CSS fr
 
 ### Tailwind setup
 
-Add `@tailwindcss/vite` plugin to `.storybook/main.ts` via `viteFinal`.
+Add `tailwindcss` and `@tailwindcss/vite` as devDeps in `packages/docs`. Add the Vite plugin in `.storybook/main.ts` via `viteFinal`.
 
-Global CSS imports:
+Global CSS (`packages/docs/src/styles.css`):
 ```css
-/* packages/docs/src/styles.css */
 @import "tailwindcss";
 @import "@solo-ui/tokens/styles/tokens.css";
 ```
 
+> **Note:** Storybook builds Tailwind from source (scanning `packages/react/src/**`), not from `dist/styles.css`. This means Storybook is not testing the shipped CSS artifact directly. The trade-off is acceptable for development speed — the shipped CSS is validated at publish time via the build step.
+
 ### Stories
 
+Stories are colocated with the component at:
 ```
-packages/docs/src/stories/Card.stories.tsx
+packages/react/src/components/ui/Card/Card.stories.tsx
 ```
 
 Cases covered:
@@ -233,14 +302,16 @@ Cases covered:
 
 ---
 
-## Build
+## Versioning
 
-The build for `@solo-ui/ui` runs two steps:
+The package rename (`@solo-ui/react` → `@solo-ui/ui`) is a breaking change. Create a changeset before merging:
 
-1. **tsup** — JS/TS bundle (existing, unchanged)
-2. **Tailwind CSS build** — compiles `src/styles/index.css` → `dist/styles.css`, scanning `src/**/*.tsx` for class names
-
-The `build` script in `package.json` runs both in sequence.
+```bash
+pnpm changeset
+# type: major
+# packages: all public packages (fixed versioning)
+# summary: rename @solo-ui/react to @solo-ui/ui
+```
 
 ---
 
@@ -250,3 +321,4 @@ The `build` script in `package.json` runs both in sequence.
 - Dark/light mode toggling (fixed dark for now)
 - Animation/transition on Card
 - Build script to auto-generate tokens CSS from TS
+- Accessibility beyond decorative `aria-hidden` on the 3 dots
