@@ -41,9 +41,9 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
       {/* Traffic-light dots — decorative */}
       <div className="flex items-center mb-3">
         <span aria-hidden="true" className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-          <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-          <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+          <span className="w-3 h-3 rounded-full bg-red" />
+          <span className="w-3 h-3 rounded-full bg-yellow" />
+          <span className="w-3 h-3 rounded-full bg-green" />
         </span>
         <span className="ml-2 text-subtle text-xs">{title}</span>
       </div>

@@ -7,4 +7,7 @@ export const colors = {
   subtle: '#666666',
   primary: '#cccccc',
   accent: '#00ff41',
+  red: '#ff5f57',
+  yellow: '#ffbd2e',
+  green: '#28c840',
 } as const

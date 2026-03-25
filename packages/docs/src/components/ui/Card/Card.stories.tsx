@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Card>
 
 export const Default: Story = {
   render: () => (
-    <Card style={{ width: 400 }}>
+    <Card className="max-w-sm">
       <Card.Header
         title="git — conventional commits"
         description="// o custo real de um histórico de git bagunçado"
@@ -33,7 +33,7 @@ export const Default: Story = {
 
 export const SemFooter: Story = {
   render: () => (
-    <Card style={{ width: 400 }}>
+    <Card className="max-w-sm">
       <Card.Header
         title="git — conventional commits"
         description="// o custo real de um histórico de git bagunçado"
@@ -47,7 +47,7 @@ export const SemFooter: Story = {
 
 export const SemDescricao: Story = {
   render: () => (
-    <Card style={{ width: 400 }}>
+    <Card className="max-w-sm">
       <Card.Header title="apenas título" />
       <Card.Content>
         <p className="text-muted text-xs">Header sem description.</p>

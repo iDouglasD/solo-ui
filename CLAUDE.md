@@ -46,3 +46,8 @@ Always pin with `^X.Y.Z`, never use `latest`. When adding new dependencies, chec
 ## Internal Workspace Dependencies
 
 Use `"workspace:*"` for internal package references (e.g., `"@solo-ui/tokens": "workspace:*"`).
+
+## Component & Styling Conventions
+
+- Do not use inline styles in components. Example to avoid: `style={{ width: 400 }}`. Use Tailwind classes instead.
+- Do not use hex colors directly in classNames. Example to avoid: `bg-[#ff5f57]`. Always use color tokens from `@solo-ui/tokens`.
