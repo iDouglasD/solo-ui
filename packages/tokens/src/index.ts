@@ -1,1 +1,1 @@
-export const tokens = {} as const
+export { colors } from './colors'
