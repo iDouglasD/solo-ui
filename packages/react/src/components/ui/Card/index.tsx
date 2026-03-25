@@ -39,9 +39,7 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
   return (
     <div className={cn('bg-elevated border-b border-border px-4 py-3', className)}>
       {/* Traffic-light dots — decorative */}
-      <div
-        className="flex items-center"
-      >
+      <div className="flex items-center">
         <span aria-hidden="true" className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-red" />
           <span className="w-3 h-3 rounded-full bg-yellow" />
