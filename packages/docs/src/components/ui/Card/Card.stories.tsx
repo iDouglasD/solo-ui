@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Card } from '.'
+import { Card } from '@solo-ui/ui'
 
 const meta: Meta<typeof Card> = {
   title: 'UI/Card',
