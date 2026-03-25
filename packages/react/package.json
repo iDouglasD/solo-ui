@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "build": "tsup && tailwindcss -i src/styles/index.css -o dist/styles.css --minify",
+    "typecheck": "tsc --noEmit",
     "lint": "biome check .",
     "format": "biome format --write ."
   },

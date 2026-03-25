@@ -39,7 +39,7 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
   return (
     <div className={cn('bg-elevated border-b border-border px-4 py-3', className)}>
       {/* Traffic-light dots — decorative */}
-      <div className="flex items-center mb-3">
+      <div className="flex items-center">
         <span aria-hidden="true" className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-red" />
           <span className="w-3 h-3 rounded-full bg-yellow" />
@@ -47,7 +47,7 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
         </span>
         <span className="ml-2 text-subtle text-xs">{title}</span>
       </div>
-      {description && <p className="text-muted text-xs">{description}</p>}
+      {description && <p className="text-muted text-xs mt-2">{description}</p>}
     </div>
   )
 }
