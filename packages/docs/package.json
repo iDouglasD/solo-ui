@@ -11,7 +11,7 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "@solo-ui/react": "workspace:*",
+    "@solo-ui/ui": "workspace:*",
     "@solo-ui/tokens": "workspace:*"
   },
   "devDependencies": {
