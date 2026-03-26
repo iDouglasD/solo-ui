@@ -1,4 +1,9 @@
 {
   "extends": "@solo-ui/ts-config/react.json",
+  "compilerOptions": {
+    "paths": {
+      "@solo-ui/ui": ["../react/src/index.ts"]
+    }
+  },
   "include": [".storybook/**/*", "src/**/*"]
 }

@@ -4,7 +4,7 @@ import { cn } from '../../../lib/cn'
 
 // ─── Variants ───────────────────────────────────────────────────────────────
 
-const cardVariants = cva('rounded-lg border overflow-hidden font-mono text-sm', {
+const cardVariants = cva('rounded-lg border overflow-hidden font-mono text-sm w-full', {
   variants: {
     variant: {
       default: 'bg-surface border-border text-primary',
@@ -45,9 +45,9 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
           <span className="w-3 h-3 rounded-full bg-yellow" />
           <span className="w-3 h-3 rounded-full bg-green" />
         </span>
-        <span className="ml-2 text-subtle text-xs">{title}</span>
+        <span className="ml-2 text-subtle text-sm">{title}</span>
       </div>
-      {description && <p className="text-muted text-xs mt-2">{description}</p>}
+      {description && <p className="text-muted text-sm mt-2">{description}</p>}
     </div>
   )
 }
@@ -72,7 +72,7 @@ interface CardFooterProps {
 
 function CardFooter({ children, className }: CardFooterProps) {
   return (
-    <div className={cn('px-4 py-3 border-t border-border text-muted text-xs', className)}>
+    <div className={cn('px-4 py-3 border-t border-border text-muted text-sm', className)}>
       {children}
     </div>
   )
@@ -80,9 +80,5 @@ function CardFooter({ children, className }: CardFooterProps) {
 
 // ─── Composition ─────────────────────────────────────────────────────────────
 
-Card.Header = CardHeader
-Card.Content = CardContent
-Card.Footer = CardFooter
-
 export type { CardContentProps, CardFooterProps, CardHeaderProps, CardProps }
-export { Card }
+export { Card, CardHeader, CardContent, CardFooter }

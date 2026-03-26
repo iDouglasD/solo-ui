@@ -18,6 +18,19 @@ React component library package. Built with tsup (JS) + Tailwind CLI (CSS), publ
 - Define variants with CVA, apply classes with `cn()`
 - The `"use client"` directive is handled by the tsup banner — do not add it manually per file
 
+### Export pattern
+
+Every `index.tsx` must end with two named export lines — types first, then components:
+
+```ts
+export type { FooProps, FooBarProps }
+export { Foo, FooBar }
+```
+
+- One `export type` line listing all public prop interfaces
+- One `export` line listing all exported components
+- No default exports
+
 ## Build
 
 ```bash

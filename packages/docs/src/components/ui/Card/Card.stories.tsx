@@ -1,4 +1,4 @@
-import { Card } from '@solo-ui/ui'
+import { Card, CardHeader, CardContent, CardFooter } from '@solo-ui/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Card> = {
@@ -18,40 +18,40 @@ type Story = StoryObj<typeof Card>
 
 export const Default: Story = {
   render: () => (
-    <Card className="max-w-sm">
-      <Card.Header
+    <Card className="w-2xl">
+      <CardHeader
         title="git — conventional commits"
         description="// the real cost of a messy git history"
       />
-      <Card.Content>
+      <CardContent>
         <p className="text-muted text-xs">Free card content.</p>
-      </Card.Content>
-      <Card.Footer>5 commits</Card.Footer>
+      </CardContent>
+      <CardFooter>5 commits</CardFooter>
     </Card>
   ),
 }
 
 export const WithoutFooter: Story = {
   render: () => (
-    <Card className="max-w-sm">
-      <Card.Header
+    <Card className="w-2xl">
+      <CardHeader
         title="git — conventional commits"
         description="// the real cost of a messy git history"
       />
-      <Card.Content>
+      <CardContent>
         <p className="text-muted text-xs">Card without footer.</p>
-      </Card.Content>
+      </CardContent>
     </Card>
   ),
 }
 
 export const WithoutDescription: Story = {
   render: () => (
-    <Card className="max-w-sm">
-      <Card.Header title="title only" />
-      <Card.Content>
+    <Card className="w-2xl">
+      <CardHeader title="title only" />
+      <CardContent>
         <p className="text-muted text-xs">Header without description.</p>
-      </Card.Content>
+      </CardContent>
     </Card>
   ),
 }
