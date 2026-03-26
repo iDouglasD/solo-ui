@@ -10,6 +10,9 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
   framework: '@storybook/react-vite',
   viteFinal: async (config) => {
+    if (config.mode === 'production') {
+      config.base = '/solo-ui/'
+    }
     config.plugins = [...(config.plugins ?? []), tailwindcss()]
     config.resolve = {
       ...config.resolve,
