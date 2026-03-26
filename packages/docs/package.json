@@ -9,8 +9,7 @@
     "build": "storybook build",
     "typecheck": "tsc --noEmit",
     "lint": "biome check .",
-    "format": "biome format --write .",
-    "deploy-storybook": "storybook-to-ghpages"
+    "format": "biome format --write ."
   },
   "dependencies": {
     "@solo-ui/tokens": "workspace:*",
