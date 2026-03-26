@@ -81,4 +81,4 @@ function CardFooter({ children, className }: CardFooterProps) {
 // ─── Composition ─────────────────────────────────────────────────────────────
 
 export type { CardContentProps, CardFooterProps, CardHeaderProps, CardProps }
-export { Card, CardHeader, CardContent, CardFooter }
+export { Card, CardContent, CardFooter, CardHeader }
