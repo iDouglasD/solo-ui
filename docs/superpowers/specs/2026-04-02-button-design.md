@@ -67,7 +67,7 @@ All native `<button>` HTML attributes are forwarded via `...rest`.
 ### Behavior
 
 - **`icon`** — renders a `ReactNode` to the left of children. When `loading=true` and `icon` is present, the icon is replaced by the spinner.
-- **`loading`** — sets `disabled` on the `<button>`, adds `aria-busy="true"` and `aria-disabled="true"`, and renders a spinner to the left of children.
+- **`loading`** — sets `disabled` on the `<button>`, adds `aria-busy="true"` (native `disabled` already handles the disabled state for assistive tech), and renders a spinner to the left of children.
 - **`disabled`** — native HTML attribute; handled entirely by CSS (`disabled:opacity-30 disabled:cursor-not-allowed`).
 
 ### Spinner
@@ -92,7 +92,7 @@ disabled:opacity-30 disabled:cursor-not-allowed
 ## Accessibility
 
 - Native `<button>` element — keyboard focus and ARIA semantics are free
-- `loading=true` adds `aria-busy="true"` and `aria-disabled="true"`
+- `loading=true` adds `aria-busy="true"` (native `disabled` handles the rest)
 - Spinner has `aria-hidden="true"` — decorative; button text communicates state
 - `focus-visible` ring uses `ring-accent` for keyboard navigation visibility
 
