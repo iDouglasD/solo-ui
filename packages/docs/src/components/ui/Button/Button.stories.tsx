@@ -68,7 +68,15 @@ export const WithIcon: Story = {
       <Button
         variant="outline"
         icon={
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+          >
             <circle cx="12" cy="12" r="3" />
             <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
           </svg>
@@ -79,7 +87,15 @@ export const WithIcon: Story = {
       <Button
         variant="primary"
         icon={
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+          >
             <polyline points="20 6 9 17 4 12" />
           </svg>
         }
@@ -93,9 +109,15 @@ export const WithIcon: Story = {
 export const Loading: Story = {
   render: () => (
     <div className="flex gap-3">
-      <Button variant="primary" loading>processing</Button>
-      <Button variant="destructive" loading>deleting</Button>
-      <Button variant="outline" loading>loading</Button>
+      <Button variant="primary" loading>
+        processing
+      </Button>
+      <Button variant="destructive" loading>
+        deleting
+      </Button>
+      <Button variant="outline" loading>
+        loading
+      </Button>
     </div>
   ),
 }
@@ -103,9 +125,15 @@ export const Loading: Story = {
 export const Disabled: Story = {
   render: () => (
     <div className="flex gap-3">
-      <Button variant="primary" disabled>submit</Button>
-      <Button variant="destructive" disabled>delete</Button>
-      <Button variant="outline" disabled>configure</Button>
+      <Button variant="primary" disabled>
+        submit
+      </Button>
+      <Button variant="destructive" disabled>
+        delete
+      </Button>
+      <Button variant="outline" disabled>
+        configure
+      </Button>
     </div>
   ),
 }

@@ -46,10 +46,18 @@ export const Variants: Story = {
 export const WithDot: Story = {
   render: () => (
     <div className="flex gap-2">
-      <Badge variant="default" dot>default</Badge>
-      <Badge variant="success" dot>success</Badge>
-      <Badge variant="warning" dot>pending</Badge>
-      <Badge variant="danger" dot>error</Badge>
+      <Badge variant="default" dot>
+        default
+      </Badge>
+      <Badge variant="success" dot>
+        success
+      </Badge>
+      <Badge variant="warning" dot>
+        pending
+      </Badge>
+      <Badge variant="danger" dot>
+        error
+      </Badge>
     </div>
   ),
 }
