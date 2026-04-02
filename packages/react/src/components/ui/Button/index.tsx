@@ -18,9 +18,9 @@ const buttonVariants = cva(
         link: 'bg-transparent text-accent underline underline-offset-4 hover:opacity-70 px-0',
       },
       size: {
-        sm: 'text-[11px] py-1.5 px-3.5',
-        md: 'text-[13px] py-2.5 px-6',
-        lg: 'text-[15px] py-3.5 px-8',
+        sm: 'text-xs py-1.5 px-3.5',
+        md: 'text-sm py-2.5 px-6',
+        lg: 'text-base py-3.5 px-8',
       },
     },
     defaultVariants: {
@@ -43,7 +43,7 @@ function Spinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
     <span
       aria-hidden="true"
       className={cn(
-        'border-[1.5px] border-current border-t-transparent rounded-full animate-spin flex-shrink-0',
+        'border-[1.5px] border-current border-t-transparent rounded-full animate-spin shrink-0',
         spinnerSizes[size],
       )}
     />
@@ -54,7 +54,7 @@ function Spinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   icon?: React.ReactNode
   loading?: boolean
 }

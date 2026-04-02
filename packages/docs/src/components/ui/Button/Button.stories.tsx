@@ -11,6 +11,19 @@ const meta: Meta<typeof Button> = {
       values: [{ name: 'dark', value: '#0d0d0d' }],
     },
   },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'destructive', 'secondary', 'outline', 'ghost', 'link'],
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+    },
+    loading: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    children: { control: 'text' },
+  },
 }
 
 export default meta
@@ -18,19 +31,23 @@ type Story = StoryObj<typeof Button>
 
 export const Default: Story = {
   args: {
-    children: '$ submit',
+    variant: 'primary',
+    size: 'md',
+    children: 'submit',
+    loading: false,
+    disabled: false,
   },
 }
 
 export const Variants: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <Button variant="primary">$ primary</Button>
-      <Button variant="destructive">$ destructive</Button>
-      <Button variant="secondary">$ secondary</Button>
-      <Button variant="outline">$ outline</Button>
-      <Button variant="ghost">$ ghost</Button>
-      <Button variant="link">$ link</Button>
+      <Button variant="primary">primary</Button>
+      <Button variant="destructive">destructive</Button>
+      <Button variant="secondary">secondary</Button>
+      <Button variant="outline">outline</Button>
+      <Button variant="ghost">ghost</Button>
+      <Button variant="link">link</Button>
     </div>
   ),
 }
@@ -38,9 +55,9 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex items-center gap-3">
-      <Button size="sm">$ small</Button>
-      <Button size="md">$ medium</Button>
-      <Button size="lg">$ large</Button>
+      <Button size="sm">small</Button>
+      <Button size="md">medium</Button>
+      <Button size="lg">large</Button>
     </div>
   ),
 }
@@ -57,7 +74,7 @@ export const WithIcon: Story = {
           </svg>
         }
       >
-        $ configure
+        configure
       </Button>
       <Button
         variant="primary"
@@ -67,7 +84,7 @@ export const WithIcon: Story = {
           </svg>
         }
       >
-        $ deploy
+        deploy
       </Button>
     </div>
   ),
@@ -76,9 +93,9 @@ export const WithIcon: Story = {
 export const Loading: Story = {
   render: () => (
     <div className="flex gap-3">
-      <Button variant="primary" loading>$ processing</Button>
-      <Button variant="destructive" loading>$ deleting</Button>
-      <Button variant="outline" loading>$ loading</Button>
+      <Button variant="primary" loading>processing</Button>
+      <Button variant="destructive" loading>deleting</Button>
+      <Button variant="outline" loading>loading</Button>
     </div>
   ),
 }
@@ -86,9 +103,9 @@ export const Loading: Story = {
 export const Disabled: Story = {
   render: () => (
     <div className="flex gap-3">
-      <Button variant="primary" disabled>$ submit</Button>
-      <Button variant="destructive" disabled>$ delete</Button>
-      <Button variant="outline" disabled>$ configure</Button>
+      <Button variant="primary" disabled>submit</Button>
+      <Button variant="destructive" disabled>delete</Button>
+      <Button variant="outline" disabled>configure</Button>
     </div>
   ),
 }
