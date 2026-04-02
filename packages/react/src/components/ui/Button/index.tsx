@@ -32,19 +32,19 @@ const buttonVariants = cva(
 
 // ─── Spinner ─────────────────────────────────────────────────────────────────
 
-const spinnerSizes: Record<string, string> = {
+const spinnerSizes: Record<'sm' | 'md' | 'lg', string> = {
   sm: 'w-2.5 h-2.5',
   md: 'w-3 h-3',
   lg: 'w-3.5 h-3.5',
 }
 
-function Spinner({ size = 'md' }: { size?: string }) {
+function Spinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   return (
     <span
       aria-hidden="true"
       className={cn(
         'border-[1.5px] border-current border-t-transparent rounded-full animate-spin flex-shrink-0',
-        spinnerSizes[size] ?? spinnerSizes.md,
+        spinnerSizes[size],
       )}
     />
   )
@@ -70,10 +70,11 @@ function Button({
   ...rest
 }: ButtonProps) {
   const isDisabled = disabled || loading
-  const resolvedSize = size ?? 'md'
+  const resolvedSize: 'sm' | 'md' | 'lg' = size ?? 'md'
 
   return (
     <button
+      type="button"
       className={cn(buttonVariants({ variant, size }), className)}
       disabled={isDisabled}
       aria-busy={loading || undefined}
