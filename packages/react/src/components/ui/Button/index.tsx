@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-accent text-base hover:opacity-85',
-        destructive: 'bg-red text-base hover:opacity-85',
-        secondary: 'bg-elevated text-primary hover:bg-border',
+        primary: 'bg-accent text-base hover:opacity-70',
+        destructive: 'bg-red text-base hover:opacity-70',
+        secondary: 'bg-elevated hover:opacity-70 text-primary hover:bg-border',
         outline:
           'bg-transparent text-primary border border-muted hover:border-accent hover:text-accent',
         ghost: 'bg-transparent text-subtle hover:bg-elevated hover:text-primary',
@@ -54,7 +54,7 @@ function Spinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   icon?: React.ReactNode
   loading?: boolean
 }
