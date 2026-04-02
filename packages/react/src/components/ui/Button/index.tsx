@@ -5,7 +5,7 @@ import { cn } from '../../../lib/cn'
 // ─── Variants ───────────────────────────────────────────────────────────────
 
 const buttonVariants = cva(
-  'font-mono font-medium rounded cursor-pointer inline-flex items-center gap-1.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-30 disabled:cursor-not-allowed',
+  'font-mono font-medium rounded cursor-pointer inline-flex items-center justify-center gap-1.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-30 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {

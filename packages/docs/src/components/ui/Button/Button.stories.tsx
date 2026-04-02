@@ -17,7 +17,9 @@ export default meta
 type Story = StoryObj<typeof Button>
 
 export const Default: Story = {
-  render: () => <Button>$ submit</Button>,
+  args: {
+    children: '$ submit',
+  },
 }
 
 export const Variants: Story = {
