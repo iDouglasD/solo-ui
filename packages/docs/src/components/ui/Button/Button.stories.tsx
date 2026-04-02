@@ -20,6 +20,7 @@ const meta: Meta<typeof Button> = {
       control: 'select',
       options: ['sm', 'md', 'lg'],
     },
+    icon: { control: false },
     loading: { control: 'boolean' },
     disabled: { control: 'boolean' },
     children: { control: 'text' },
