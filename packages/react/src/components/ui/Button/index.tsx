@@ -5,15 +5,15 @@ import { cn } from '../../../lib/cn'
 // ─── Variants ───────────────────────────────────────────────────────────────
 
 const buttonVariants = cva(
-  'font-mono font-medium rounded cursor-pointer inline-flex items-center justify-center gap-1.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-30 disabled:cursor-not-allowed',
+  'font-mono font-semibold rounded-lg cursor-pointer inline-flex items-center justify-center gap-1.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-30 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
         primary: 'bg-accent text-base hover:opacity-70',
-        destructive: 'bg-red text-base hover:opacity-70',
+        destructive: 'bg-red text-base text-white hover:opacity-70',
         secondary: 'bg-elevated hover:opacity-70 text-primary hover:bg-border',
         outline:
-          'bg-transparent text-primary border border-muted hover:border-accent hover:text-accent',
+          'bg-transparent text-base border border-muted hover:border-accent hover:text-accent',
         ghost: 'bg-transparent text-subtle hover:bg-elevated hover:text-primary',
         link: 'bg-transparent text-accent underline underline-offset-4 hover:opacity-70 px-0',
       },
@@ -54,7 +54,7 @@ function Spinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   icon?: React.ReactNode
   loading?: boolean
 }
