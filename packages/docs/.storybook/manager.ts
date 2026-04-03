@@ -1,6 +1,5 @@
-import '../styles.css'
+import { addons } from 'storybook/manager-api'
 import { create } from 'storybook/theming/create'
-import type { Preview } from '@storybook/react'
 
 const darkTheme = create({
   base: 'dark',
@@ -21,25 +20,6 @@ const darkTheme = create({
   inputTextColor: '#cccccc',
 })
 
-const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-    docs: {
-      theme: darkTheme,
-    },
-    backgrounds: {
-      default: 'dark',
-      values: [
-        { name: 'dark', value: '#111111' },
-        { name: 'surface', value: '#0d0d0d' },
-      ],
-    },
-  },
-}
-
-export default preview
+addons.setConfig({
+  theme: darkTheme,
+})

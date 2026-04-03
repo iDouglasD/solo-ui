@@ -2,3 +2,8 @@
 @import "@solo-ui/tokens/styles/tokens.css";
 
 @source "../react/src";
+
+html,
+body {
+  background-color: var(--color-surface);
+}
