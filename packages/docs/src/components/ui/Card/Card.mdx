@@ -1,0 +1,12 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as CardStories from './Card.stories'
+
+<Meta of={CardStories} />
+
+# Card
+
+Composition container with a terminal-style header (traffic-light dots), a flexible content area, and an optional footer.
+
+<Canvas of={CardStories.Default} />
+
+<Controls of={CardStories.Default} />

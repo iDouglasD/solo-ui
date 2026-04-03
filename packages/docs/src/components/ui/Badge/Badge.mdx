@@ -1,0 +1,12 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as BadgeStories from './Badge.stories'
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Inline label for semantic status: default, success, warning, danger. Supports an optional pulsing dot indicator.
+
+<Canvas of={BadgeStories.Default} />
+
+<Controls of={BadgeStories.Default} />
