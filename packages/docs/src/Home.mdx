@@ -1,0 +1,69 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Home" />
+
+<div className="bg-default min-h-screen p-10 font-mono">
+
+  {/* ── Hero ───────────────────────────────────────────────── */}
+  <div className="mb-10">
+    <p className="text-border tracking-widest mb-4">● ● ●</p>
+    <p className="mb-2">
+      <span className="text-accent text-2xl">❯</span>
+      <span className="text-primary text-2xl font-bold ml-2">solo-ui</span>
+    </p>
+    <p className="text-muted text-sm pl-7">
+      A minimal React design system built for solo projects.
+    </p>
+  </div>
+
+  {/* ── Install ────────────────────────────────────────────── */}
+  <div className="border-t border-border pt-8 mb-10">
+    <p className="text-subtle text-xs tracking-widest mb-4">$ install</p>
+    <div className="bg-elevated rounded-lg px-4 py-3 text-sm">
+      <p>
+        <span className="text-accent">$</span>
+        <span className="text-primary ml-2">pnpm add @solo-ui/ui</span>
+      </p>
+      <p className="text-muted mt-3 mb-1"># then import the styles</p>
+      <p>
+        <span className="text-accent">$</span>
+        <span className="text-primary ml-2">
+          import <span className="text-subtle">'@solo-ui/ui/styles.css'</span>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  {/* ── Components ─────────────────────────────────────────── */}
+  <div className="border-t border-border pt-8">
+    <p className="text-subtle text-xs tracking-widest mb-4">$ ls components/</p>
+    <div className="pl-2 flex flex-col gap-2 text-sm">
+      <p>
+        <span className="text-border mr-2">├─</span>
+        <span className="text-primary">Button</span>
+        <span className="text-muted ml-3 text-xs">6 variants · 3 sizes · loading state · icon slot</span>
+      </p>
+      <p>
+        <span className="text-border mr-2">├─</span>
+        <span className="text-primary">Input</span>
+        <span className="text-muted ml-3 text-xs">3 states · 3 sizes · icon slots · field system</span>
+      </p>
+      <p>
+        <span className="text-border mr-2">├─</span>
+        <span className="text-primary">Card</span>
+        <span className="text-muted ml-3 text-xs">header · content · footer slots</span>
+      </p>
+      <p>
+        <span className="text-border mr-2">├─</span>
+        <span className="text-primary">Badge</span>
+        <span className="text-muted ml-3 text-xs">5 variants · 2 sizes</span>
+      </p>
+      <p>
+        <span className="text-border mr-2">└─</span>
+        <span className="text-primary">Table</span>
+        <span className="text-muted ml-3 text-xs">composable rows + cells</span>
+      </p>
+    </div>
+  </div>
+
+</div>
