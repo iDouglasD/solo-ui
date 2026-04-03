@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename)
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.@(stories.@(ts|tsx)|mdx)'],
-  addons: ['@storybook/addon-docs'],
+  addons: ['@storybook/addon-docs', '@storybook/addon-vitest'],
   framework: '@storybook/react-vite',
   viteFinal: async (config) => {
     if (config.mode === 'production') {
