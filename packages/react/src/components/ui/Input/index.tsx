@@ -111,9 +111,16 @@ interface InputProps
   rightIcon?: React.ReactNode
 }
 
+const iconOffset: Record<'sm' | 'md' | 'lg', { left: string; right: string }> = {
+  sm: { left: 'left-2.5', right: 'right-2.5' },
+  md: { left: 'left-3', right: 'right-3' },
+  lg: { left: 'left-4', right: 'right-4' },
+}
+
 function Input({ className, size, leftIcon, rightIcon, ...rest }: InputProps) {
   const { state } = useContext(InputFieldContext)
   const resolvedState = state ?? 'default'
+  const resolvedSize = size ?? 'md'
   const hasLeftIcon = !!leftIcon
   const hasRightIcon = !!rightIcon
 
@@ -129,16 +136,18 @@ function Input({ className, size, leftIcon, rightIcon, ...rest }: InputProps) {
 
   if (!hasLeftIcon && !hasRightIcon) return inputEl
 
+  const { left, right } = iconOffset[resolvedSize]
+
   return (
     <div className="relative flex w-full items-center">
       {leftIcon && (
-        <span className="pointer-events-none absolute left-2.5 flex shrink-0 items-center text-muted">
+        <span className={cn('pointer-events-none absolute flex shrink-0 items-center text-muted', left)}>
           {leftIcon}
         </span>
       )}
       {inputEl}
       {rightIcon && (
-        <span className="pointer-events-none absolute right-2.5 flex shrink-0 items-center text-muted">
+        <span className={cn('pointer-events-none absolute flex shrink-0 items-center text-muted', right)}>
           {rightIcon}
         </span>
       )}
