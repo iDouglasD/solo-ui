@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Card>
 
 export const Default: Story = {
   render: () => (
-    <Card className="w-2xl">
+    <Card className="md:w-2xl w-fit">
       <CardHeader
         title="git — conventional commits"
         description="// the real cost of a messy git history"
@@ -33,7 +33,7 @@ export const Default: Story = {
 
 export const WithoutFooter: Story = {
   render: () => (
-    <Card className="w-2xl">
+    <Card className="md:w-2xl w-fit">
       <CardHeader
         title="git — conventional commits"
         description="// the real cost of a messy git history"
@@ -47,7 +47,7 @@ export const WithoutFooter: Story = {
 
 export const WithoutDescription: Story = {
   render: () => (
-    <Card className="w-2xl">
+    <Card className="md:w-2xl w-fit">
       <CardHeader title="title only" />
       <CardContent>
         <p className="text-muted text-sm">Header without description.</p>
