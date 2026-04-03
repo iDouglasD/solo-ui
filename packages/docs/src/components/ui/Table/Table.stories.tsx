@@ -1,4 +1,13 @@
-import { Badge, Table, TableBody, TableCell, TableHead, TableHeadCell, TableHeader, TableRow } from '@solo-ui/ui'
+import {
+  Badge,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableHeader,
+  TableRow,
+} from '@solo-ui/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Table> = {

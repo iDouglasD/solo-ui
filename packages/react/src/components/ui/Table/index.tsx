@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import React from 'react'
+
 import { cn } from '../../../lib/cn'
 
 // ─── Variants ───────────────────────────────────────────────────────────────
@@ -140,21 +141,21 @@ function TableCell({ className, children, ...rest }: TableCellProps) {
 // ─── Exports ─────────────────────────────────────────────────────────────────
 
 export type {
-  TableProps,
+  TableBodyProps,
+  TableCellProps,
+  TableHeadCellProps,
   TableHeaderProps,
   TableHeadProps,
-  TableBodyProps,
+  TableProps,
   TableRowProps,
-  TableHeadCellProps,
-  TableCellProps,
 }
 export {
   Table,
-  TableHeader,
-  TableHead,
   TableBody,
+  TableCell,
+  TableHead,
+  TableHeadCell,
+  TableHeader,
   TableRow,
   tableRowVariants,
-  TableHeadCell,
-  TableCell,
 }
