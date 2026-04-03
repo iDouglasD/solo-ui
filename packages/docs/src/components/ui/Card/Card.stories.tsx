@@ -39,7 +39,7 @@ export const WithoutFooter: Story = {
         description="// the real cost of a messy git history"
       />
       <CardContent>
-        <p className="text-muted text-xs">Card without footer.</p>
+        <p className="text-muted text-sm">Card without footer.</p>
       </CardContent>
     </Card>
   ),
@@ -50,7 +50,7 @@ export const WithoutDescription: Story = {
     <Card className="w-2xl">
       <CardHeader title="title only" />
       <CardContent>
-        <p className="text-muted text-xs">Header without description.</p>
+        <p className="text-muted text-sm">Header without description.</p>
       </CardContent>
     </Card>
   ),
