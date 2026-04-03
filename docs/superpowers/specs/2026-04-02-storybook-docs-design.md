@@ -29,10 +29,14 @@ Two changes:
 stories: ['../src/**/*.stories.@(ts|tsx)'],
 ```
 
-**After:**
+**After (full config object — insert `addons` as second key, after `stories`):**
 ```ts
-addons: ['@storybook/addon-docs'],
-stories: ['../src/**/*.@(stories.@(ts|tsx)|mdx)'],
+const config: StorybookConfig = {
+  stories: ['../src/**/*.@(stories.@(ts|tsx)|mdx)'],
+  addons: ['@storybook/addon-docs'],
+  framework: '@storybook/react-vite',
+  viteFinal: async (config) => { ... },
+}
 ```
 
 ## MDX File Structure
@@ -162,3 +166,5 @@ Composable data table with a Card-style header, column headers, and body rows wi
 - The `addons` array in `main.ts` must be added as a new key — the current config has no `addons` key.
 - After installing, run `pnpm --filter @solo-ui/docs dev` and verify each component shows a **Docs** tab with the Canvas and Controls rendering correctly.
 - The `Controls` block only shows props that have `args` defined in the Default story. Components whose Default story uses `render()` without `args` (Card, Table) will show an empty or minimal props table — this is expected behavior and not a bug.
+- `pnpm add --filter` automatically updates the lockfile and installs — no separate `pnpm install` step is needed.
+- The `tsconfig.json` in `@solo-ui/docs` does not need changes for MDX files — TypeScript does not type-check `.mdx` files and the `typecheck` script will not error on them.
