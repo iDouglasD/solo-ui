@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@solo-ui/tokens": "workspace:*",
-    "@solo-ui/ui": "workspace:*",
-    "@storybook/addon-docs": "^10.3.3"
+    "@solo-ui/ui": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.8",
     "@solo-ui/ts-config": "workspace:*",
+    "@storybook/addon-docs": "^10.3.3",
     "@storybook/react": "^10.3.3",
     "@storybook/react-vite": "^10.3.3",
     "@tailwindcss/vite": "^4.2.2",
