@@ -10,7 +10,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default: 'bg-elevated text-primary border-muted',
-        success: 'bg-accent/10 text-accent border-accent',
+        success: 'bg-green/10 text-green border-green',
         warning: 'bg-yellow/10 text-yellow border-yellow',
         danger: 'bg-red/10 text-red border-red',
       },
