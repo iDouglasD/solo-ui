@@ -45,7 +45,7 @@ function CardHeader({ title, description, className }: CardHeaderProps) {
           <span className="w-3 h-3 rounded-full bg-yellow" />
           <span className="w-3 h-3 rounded-full bg-green" />
         </span>
-        <span className="ml-2 text-subtle text-sm">{title}</span>
+        <span className="ml-2 text-subtle text-lg">{title}</span>
       </div>
       {description && <p className="text-muted text-sm mt-2">{description}</p>}
     </div>
