@@ -1,6 +1,45 @@
 import type React from 'react'
 import { createContext, useContext } from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../../lib/cn'
+
+// ─── Variants ────────────────────────────────────────────────────────────────
+
+const inputVariants = cva(
+  'w-full rounded-lg border bg-elevated font-mono text-primary outline-none transition-all placeholder:text-muted disabled:opacity-30 disabled:cursor-not-allowed focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent',
+  {
+    variants: {
+      size: {
+        sm: 'text-xs py-1.5 px-2.5',
+        md: 'text-sm py-2 px-3',
+        lg: 'text-sm py-2.5 px-4',
+      },
+      state: {
+        default: 'border-border',
+        error: 'border-red',
+        success: 'border-green',
+      },
+      hasLeftIcon: {
+        true: '',
+      },
+      hasRightIcon: {
+        true: '',
+      },
+    },
+    compoundVariants: [
+      { size: 'sm', hasLeftIcon: true, class: 'pl-7' },
+      { size: 'sm', hasRightIcon: true, class: 'pr-7' },
+      { size: 'md', hasLeftIcon: true, class: 'pl-9' },
+      { size: 'md', hasRightIcon: true, class: 'pr-9' },
+      { size: 'lg', hasLeftIcon: true, class: 'pl-10' },
+      { size: 'lg', hasRightIcon: true, class: 'pr-10' },
+    ],
+    defaultVariants: {
+      size: 'md',
+      state: 'default',
+    },
+  },
+)
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -63,7 +102,51 @@ function InputHint({ className, children, ...rest }: InputHintProps) {
   )
 }
 
+// ─── Input ───────────────────────────────────────────────────────────────────
+
+interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+    Pick<VariantProps<typeof inputVariants>, 'size'> {
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
+}
+
+function Input({ className, size, leftIcon, rightIcon, ...rest }: InputProps) {
+  const { state } = useContext(InputFieldContext)
+  const resolvedState = state ?? 'default'
+  const hasLeftIcon = !!leftIcon
+  const hasRightIcon = !!rightIcon
+
+  const inputEl = (
+    <input
+      className={cn(
+        inputVariants({ size, state: resolvedState, hasLeftIcon, hasRightIcon }),
+        className,
+      )}
+      {...rest}
+    />
+  )
+
+  if (!hasLeftIcon && !hasRightIcon) return inputEl
+
+  return (
+    <div className="relative flex w-full items-center">
+      {leftIcon && (
+        <span className="pointer-events-none absolute left-2.5 flex shrink-0 items-center text-muted">
+          {leftIcon}
+        </span>
+      )}
+      {inputEl}
+      {rightIcon && (
+        <span className="pointer-events-none absolute right-2.5 flex shrink-0 items-center text-muted">
+          {rightIcon}
+        </span>
+      )}
+    </div>
+  )
+}
+
 // ─── Exports ─────────────────────────────────────────────────────────────────
 
-export type { InputFieldProps, InputLabelProps, InputHintProps }
-export { InputField, InputLabel, InputHint }
+export type { InputFieldProps, InputLabelProps, InputHintProps, InputProps }
+export { InputField, InputLabel, InputHint, Input, inputVariants }
