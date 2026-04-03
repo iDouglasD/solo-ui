@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@solo-ui/tokens": "workspace:*",
-    "@solo-ui/ui": "workspace:*"
+    "@solo-ui/ui": "workspace:*",
+    "@storybook/addon-docs": "^10.3.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.8",

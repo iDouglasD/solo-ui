@@ -7,7 +7,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.@(ts|tsx)'],
+  stories: ['../src/**/*.@(stories.@(ts|tsx)|mdx)'],
+  addons: ['@storybook/addon-docs'],
   framework: '@storybook/react-vite',
   viteFinal: async (config) => {
     if (config.mode === 'production') {
