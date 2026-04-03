@@ -6,7 +6,7 @@ import { cn } from '../../../lib/cn'
 // ─── Variants ────────────────────────────────────────────────────────────────
 
 const inputVariants = cva(
-  'w-full rounded-lg border bg-elevated font-mono text-primary outline-none transition-all placeholder:text-muted disabled:opacity-30 disabled:cursor-not-allowed focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent',
+  'w-full rounded-lg border bg-elevated font-mono text-primary outline-none transition-all placeholder:text-muted disabled:opacity-30 disabled:cursor-not-allowed focus-visible:ring-2',
   {
     variants: {
       size: {
@@ -15,9 +15,9 @@ const inputVariants = cva(
         lg: 'text-sm py-2.5 px-4',
       },
       state: {
-        default: 'border-border',
-        error: 'border-red',
-        success: 'border-green',
+        default: 'border-border focus-visible:border-subtle focus-visible:ring-subtle/50',
+        error: 'border-red focus-visible:border-red focus-visible:ring-red/50',
+        success: 'border-green focus-visible:border-green focus-visible:ring-green/50',
       },
       hasLeftIcon: {
         true: '',
@@ -67,7 +67,7 @@ function InputField({ state, className, children, ...rest }: InputFieldProps) {
 
 // ─── InputLabel ──────────────────────────────────────────────────────────────
 
-interface InputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
+interface InputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> { }
 
 function InputLabel({ className, children, ...rest }: InputLabelProps) {
   return (
@@ -85,7 +85,7 @@ const hintColors: Record<'default' | 'error' | 'success', string> = {
   success: 'text-green',
 }
 
-interface InputHintProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+interface InputHintProps extends React.HTMLAttributes<HTMLParagraphElement> { }
 
 function InputHint({ className, children, ...rest }: InputHintProps) {
   const { state } = useContext(InputFieldContext)
@@ -106,7 +106,7 @@ function InputHint({ className, children, ...rest }: InputHintProps) {
 
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    Pick<VariantProps<typeof inputVariants>, 'size'> {
+  Pick<VariantProps<typeof inputVariants>, 'size'> {
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
 }
