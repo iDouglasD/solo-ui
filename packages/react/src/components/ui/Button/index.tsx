@@ -54,7 +54,7 @@ function Spinner({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   icon?: React.ReactNode
   loading?: boolean
 }
