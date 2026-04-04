@@ -1,4 +1,4 @@
-# @solo-ui/docs
+# @solo-ds/docs
 
 Storybook 10 documentation package. Private — not published to NPM.
 
@@ -6,28 +6,28 @@ Storybook 10 documentation package. Private — not published to NPM.
 
 - **Storybook 10** with `@storybook/react-vite` framework
 - **Tailwind CSS v4** via `@tailwindcss/vite` plugin
-- Stories live in `src/components/ui/<ComponentName>/`, imported via `@solo-ui/ui`
+- Stories live in `src/components/ui/<ComponentName>/`, imported via `@solo-ds/ui`
 
 ## Running
 
 ```bash
 pnpm dev                          # from root — starts Storybook on port 6006
-pnpm --filter @solo-ui/docs dev   # directly
+pnpm --filter @solo-ds/docs dev   # directly
 ```
 
-> When running directly with `--filter`, ensure `@solo-ui/ui` is built first:
-> `pnpm build --filter @solo-ui/ui`
+> When running directly with `--filter`, ensure `@solo-ds/ui` is built first:
+> `pnpm build --filter @solo-ds/ui`
 
 ## Building
 
 ```bash
 pnpm build                        # from root
-pnpm --filter @solo-ui/docs build # directly — outputs to storybook-static/
+pnpm --filter @solo-ds/docs build # directly — outputs to storybook-static/
 ```
 
 ## Stories Location
 
-Stories live in `src/components/ui/<ComponentName>/` and are imported via `@solo-ui/ui`:
+Stories live in `src/components/ui/<ComponentName>/` and are imported via `@solo-ds/ui`:
 
 ```
 packages/docs/src/
@@ -45,4 +45,4 @@ The glob pattern in `.storybook/main.ts` picks them up automatically:
 
 ## Adding Storybook Addons
 
-Install in this package (`--filter @solo-ui/docs`), then register in `.storybook/main.ts`.
+Install in this package (`--filter @solo-ds/docs`), then register in `.storybook/main.ts`.

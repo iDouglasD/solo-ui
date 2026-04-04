@@ -1,4 +1,4 @@
-# @solo-ui/lint-config
+# @solo-ds/lint-config
 
 Shared Biome configuration. All packages extend this.
 
@@ -9,7 +9,7 @@ Each package has a `biome.json` that extends this config:
 ```json
 {
   "$schema": "https://biomejs.dev/schemas/2.4.8/schema.json",
-  "extends": ["@solo-ui/lint-config/biome"]
+  "extends": ["@solo-ds/lint-config/biome"]
 }
 ```
 
@@ -31,4 +31,4 @@ When upgrading Biome, run `biome migrate --write` in this directory to update th
 
 ## Exports
 
-The `biome.json` is exported as `@solo-ui/lint-config/biome` via the `exports` field in `package.json`.
+The `biome.json` is exported as `@solo-ds/lint-config/biome` via the `exports` field in `package.json`.

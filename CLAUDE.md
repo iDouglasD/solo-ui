@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-Turborepo monorepo for the solo-ui React design system, published to NPM under `@solo-ui/*`.
+Turborepo monorepo for the solo-ui React design system, published to NPM under `@solo-ds/*`.
 
 ## Package Manager
 
 Always use **pnpm**. Never use npm or yarn.
 
-- Install a dep in a specific package: `pnpm add <pkg> --filter @solo-ui/<name>`
+- Install a dep in a specific package: `pnpm add <pkg> --filter @solo-ds/<name>`
 - Install a root devDep: `pnpm add -Dw <pkg>`
 - Install all: `pnpm install`
 
@@ -30,7 +30,7 @@ Always use **pnpm**. Never use npm or yarn.
 
 ## Package Naming
 
-All packages use the `@solo-ui/` scope. Published packages: `@solo-ui/ui`, `@solo-ui/tokens`, `@solo-ui/ts-config`, `@solo-ui/lint-config`. The `@solo-ui/docs` package is private (not published).
+All packages use the `@solo-ds/` scope. Published packages: `@solo-ds/ui`, `@solo-ds/tokens`, `@solo-ds/ts-config`, `@solo-ds/lint-config`. The `@solo-ds/docs` package is private (not published).
 
 ## Versioning
 
@@ -46,12 +46,12 @@ Always pin with `^X.Y.Z`, never use `latest`. When adding new dependencies, chec
 
 ## Internal Workspace Dependencies
 
-Use `"workspace:*"` for internal package references (e.g., `"@solo-ui/tokens": "workspace:*"`).
+Use `"workspace:*"` for internal package references (e.g., `"@solo-ds/tokens": "workspace:*"`).
 
 ## Component & Styling Conventions
 
 - Do not use inline styles in components. Example to avoid: `style={{ width: 400 }}`. Use Tailwind classes instead.
-- Do not use hex colors directly in classNames. Example to avoid: `bg-[#ff5f57]`. Always use color tokens from `@solo-ui/tokens`.
+- Do not use hex colors directly in classNames. Example to avoid: `bg-[#ff5f57]`. Always use color tokens from `@solo-ds/tokens`.
 - Do not use arbitrary text size values. Example to avoid: `text-[13px]`. Always use Tailwind's predefined text size utilities (`text-xs`, `text-sm`, `text-base`, `text-lg`, etc.).
 
 ## Stories Language Convention

@@ -25,7 +25,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build (required for internal packages)
-        run: pnpm build --filter @solo-ui/tokens --filter @solo-ui/ui
+        run: pnpm build --filter @solo-ds/tokens --filter @solo-ds/ui
 
       - name: Lint
         run: pnpm lint

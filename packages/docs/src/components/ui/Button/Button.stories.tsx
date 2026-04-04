@@ -1,4 +1,4 @@
-import { Button } from '@solo-ui/ui'
+import { Button } from '@solo-ds/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, fn, userEvent, within } from 'storybook/test'
 

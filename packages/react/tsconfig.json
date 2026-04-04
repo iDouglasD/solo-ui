@@ -1,5 +1,5 @@
 {
-  "extends": "@solo-ui/ts-config/react.json",
+  "extends": "@solo-ds/ts-config/react.json",
   "compilerOptions": {
     "outDir": "dist",
     "ignoreDeprecations": "6.0"

@@ -1,5 +1,5 @@
 {
-  "name": "@solo-ui/docs",
+  "name": "@solo-ds/docs",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -13,12 +13,12 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "@solo-ui/tokens": "workspace:*",
-    "@solo-ui/ui": "workspace:*"
+    "@solo-ds/tokens": "workspace:*",
+    "@solo-ds/ui": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.8",
-    "@solo-ui/ts-config": "workspace:*",
+    "@solo-ds/ts-config": "workspace:*",
     "@storybook/addon-docs": "^10.3.3",
     "@storybook/addon-vitest": "^10.3.4",
     "@storybook/react": "^10.3.3",

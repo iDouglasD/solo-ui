@@ -1,4 +1,4 @@
-import { Input, InputField, InputHint, InputLabel } from '@solo-ui/ui'
+import { Input, InputField, InputHint, InputLabel } from '@solo-ds/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Input> = {

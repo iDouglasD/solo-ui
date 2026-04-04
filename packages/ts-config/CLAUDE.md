@@ -1,4 +1,4 @@
-# @solo-ui/ts-config
+# @solo-ds/ts-config
 
 Shared TypeScript configurations. No build step — config-only package.
 
@@ -6,21 +6,21 @@ Shared TypeScript configurations. No build step — config-only package.
 
 | File | Extends | Use for |
 |------|---------|---------|
-| `base.json` | — | Non-React packages (e.g., `@solo-ui/tokens`) |
-| `react.json` | `base.json` | React packages (e.g., `@solo-ui/react`, `@solo-ui/docs`) |
+| `base.json` | — | Non-React packages (e.g., `@solo-ds/tokens`) |
+| `react.json` | `base.json` | React packages (e.g., `@solo-ds/react`, `@solo-ds/docs`) |
 
 ## How Consumers Use It
 
 In each package's `tsconfig.json`:
 
 ```json
-{ "extends": "@solo-ui/ts-config/react.json" }
+{ "extends": "@solo-ds/ts-config/react.json" }
 ```
 
 or
 
 ```json
-{ "extends": "@solo-ui/ts-config/base.json" }
+{ "extends": "@solo-ds/ts-config/base.json" }
 ```
 
 ## Key Settings

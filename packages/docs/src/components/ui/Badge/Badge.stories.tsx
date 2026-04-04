@@ -1,4 +1,4 @@
-import { Badge } from '@solo-ui/ui'
+import { Badge } from '@solo-ds/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Badge> = {

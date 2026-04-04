@@ -1,4 +1,4 @@
-# @solo-ui/tokens
+# @solo-ds/tokens
 
 Design tokens package. TypeScript is the source of truth; CSS variables are maintained in sync manually until a build script is added.
 
@@ -27,22 +27,22 @@ styles/
 ## Build
 
 ```bash
-pnpm --filter @solo-ui/tokens build
+pnpm --filter @solo-ds/tokens build
 ```
 
 Output: `dist/index.js` (ESM), `dist/index.cjs` (CJS), `dist/index.d.ts`
 
 ## TypeScript
 
-Extends `@solo-ui/ts-config/base.json`. The `ignoreDeprecations: "6.0"` in `tsconfig.json` is required for TypeScript 6.x compatibility with tsup's DTS generation.
+Extends `@solo-ds/ts-config/base.json`. The `ignoreDeprecations: "6.0"` in `tsconfig.json` is required for TypeScript 6.x compatibility with tsup's DTS generation.
 
 ## Consuming Tokens
 
 ```ts
-import { colors } from '@solo-ui/tokens'
+import { colors } from '@solo-ds/tokens'
 ```
 
 CSS (Tailwind v4):
 ```css
-@import '@solo-ui/tokens/styles/tokens.css';
+@import '@solo-ds/tokens/styles/tokens.css';
 ```

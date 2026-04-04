@@ -7,7 +7,7 @@ import {
   TableHeadCell,
   TableHeader,
   TableRow,
-} from '@solo-ui/ui'
+} from '@solo-ds/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Table> = {

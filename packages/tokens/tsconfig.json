@@ -1,5 +1,5 @@
 {
-  "extends": "@solo-ui/ts-config/base.json",
+  "extends": "@solo-ds/ts-config/base.json",
   "compilerOptions": {
     "outDir": "dist",
     "ignoreDeprecations": "6.0"

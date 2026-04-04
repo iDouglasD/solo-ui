@@ -1,5 +1,5 @@
 {
-  "name": "@solo-ui/tokens",
+  "name": "@solo-ds/tokens",
   "version": "0.0.0",
   "private": false,
   "license": "MIT",
@@ -31,7 +31,7 @@
     "format": "biome format --write ."
   },
   "devDependencies": {
-    "@solo-ui/ts-config": "workspace:*",
+    "@solo-ds/ts-config": "workspace:*",
     "tsup": "^8.5.1",
     "typescript": "^6.0.2",
     "@biomejs/biome": "^2.4.8"

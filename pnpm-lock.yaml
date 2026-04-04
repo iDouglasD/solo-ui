@@ -11,7 +11,7 @@ importers:
       '@changesets/cli':
         specifier: ^2.30.0
         version: 2.30.0(@types/node@25.5.0)
-      '@solo-ui/lint-config':
+      '@solo-ds/lint-config':
         specifier: workspace:*
         version: link:packages/lint-config
       turbo:
@@ -20,17 +20,17 @@ importers:
 
   packages/docs:
     dependencies:
-      '@solo-ui/tokens':
+      '@solo-ds/tokens':
         specifier: workspace:*
         version: link:../tokens
-      '@solo-ui/ui':
+      '@solo-ds/ui':
         specifier: workspace:*
         version: link:../react
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.4.8
         version: 2.4.8
-      '@solo-ui/ts-config':
+      '@solo-ds/ts-config':
         specifier: workspace:*
         version: link:../ts-config
       '@storybook/addon-docs':
@@ -90,7 +90,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@solo-ui/tokens':
+      '@solo-ds/tokens':
         specifier: workspace:*
         version: link:../tokens
       class-variance-authority:
@@ -109,7 +109,7 @@ importers:
       '@biomejs/biome':
         specifier: ^2.4.8
         version: 2.4.8
-      '@solo-ui/ts-config':
+      '@solo-ds/ts-config':
         specifier: workspace:*
         version: link:../ts-config
       '@tailwindcss/cli':
@@ -139,7 +139,7 @@ importers:
       '@biomejs/biome':
         specifier: ^2.4.8
         version: 2.4.8
-      '@solo-ui/ts-config':
+      '@solo-ds/ts-config':
         specifier: workspace:*
         version: link:../ts-config
       tsup:

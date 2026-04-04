@@ -19,7 +19,7 @@ const config: StorybookConfig = {
       ...config.resolve,
       alias: {
         ...config.resolve?.alias,
-        '@solo-ui/ui': path.resolve(__dirname, '../../react/src/index.ts'),
+        '@solo-ds/ui': path.resolve(__dirname, '../../react/src/index.ts'),
       },
     }
     return config

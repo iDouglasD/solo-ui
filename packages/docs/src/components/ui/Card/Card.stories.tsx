@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader } from '@solo-ui/ui'
+import { Card, CardContent, CardFooter, CardHeader } from '@solo-ds/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Card> = {

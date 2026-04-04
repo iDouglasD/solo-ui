@@ -18,19 +18,19 @@ solo-ui provides a comprehensive collection of unstyled, composable component pr
 ### Installation
 
 ```bash
-npm install @solo-ui/react @solo-ui/tokens
+npm install @solo-ds/react @solo-ds/tokens
 ```
 
 Or with pnpm (recommended):
 
 ```bash
-pnpm add @solo-ui/react @solo-ui/tokens
+pnpm add @solo-ds/react @solo-ds/tokens
 ```
 
 ### Basic Usage
 
 ```tsx
-import { Button } from '@solo-ui/react'
+import { Button } from '@solo-ds/react'
 
 export function App() {
   return <Button variant="primary">Click me</Button>
@@ -41,11 +41,11 @@ export function App() {
 
 | Package | Description | Status |
 |---------|-------------|--------|
-| `@solo-ui/react` | Component library | Published |
-| `@solo-ui/tokens` | Design tokens | Published |
-| `@solo-ui/ts-config` | Shared TypeScript configs | Published |
-| `@solo-ui/lint-config` | Shared Biome configs | Published |
-| `@solo-ui/docs` | Storybook documentation | Private |
+| `@solo-ds/react` | Component library | Published |
+| `@solo-ds/tokens` | Design tokens | Published |
+| `@solo-ds/ts-config` | Shared TypeScript configs | Published |
+| `@solo-ds/lint-config` | Shared Biome configs | Published |
+| `@solo-ds/docs` | Storybook documentation | Private |
 
 ## Development
 
