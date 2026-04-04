@@ -17,6 +17,7 @@ Always use **pnpm**. Never use npm or yarn.
 - English only
 - Conventional Commits with scope: `feat(react):`, `fix(tokens):`, `chore(root):`, etc.
 - No Co-Authored-By lines
+- **Never commit autonomously.** Only create a commit when the user explicitly asks for it. This applies even when executing implementation plans or using skills (brainstorming, writing-plans, subagent-driven-development, etc.) — subagents dispatched by those skills must also follow this rule.
 
 ## Turborepo Scripts (run from root)
 
