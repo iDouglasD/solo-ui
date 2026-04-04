@@ -1,5 +1,12 @@
 # @solo-ds/ui
 
+## 1.0.2
+
+### Patch Changes
+
+- a246259: fix(react): align Card header dots with first line of title on responsive
+  - @solo-ds/tokens@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
