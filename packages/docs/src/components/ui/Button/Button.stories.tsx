@@ -5,6 +5,9 @@ import { expect, fn, userEvent, within } from 'storybook/test'
 const meta: Meta<typeof Button> = {
   title: 'UI/Button',
   component: Button,
+  args: {
+    onClick: fn(),
+  },
   parameters: {
     layout: 'centered',
     backgrounds: {
@@ -144,7 +147,6 @@ export const Clickable: Story = {
   args: {
     variant: 'primary',
     children: 'submit',
-    onClick: fn(),
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
@@ -161,9 +163,11 @@ export const DisabledIsNotClickable: Story = {
     disabled: true,
     children: 'submit',
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement)
     const button = canvas.getByRole('button', { name: /submit/i })
     await expect(button).toBeDisabled()
+    await userEvent.click(button, { pointerEventsCheck: 0 })
+    await expect(args.onClick).not.toHaveBeenCalled()
   },
 }
