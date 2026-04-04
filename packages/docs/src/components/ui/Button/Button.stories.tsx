@@ -1,5 +1,6 @@
 import { Button } from '@solo-ui/ui'
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect, fn, userEvent, within } from 'storybook/test'
 
 const meta: Meta<typeof Button> = {
   title: 'UI/Button',
@@ -137,4 +138,32 @@ export const Disabled: Story = {
       </Button>
     </div>
   ),
+}
+
+export const Clickable: Story = {
+  args: {
+    variant: 'primary',
+    children: 'submit',
+    onClick: fn(),
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole('button', { name: /submit/i })
+    await expect(button).toBeEnabled()
+    await userEvent.click(button)
+    await expect(args.onClick).toHaveBeenCalledOnce()
+  },
+}
+
+export const DisabledIsNotClickable: Story = {
+  args: {
+    variant: 'primary',
+    disabled: true,
+    children: 'submit',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole('button', { name: /submit/i })
+    await expect(button).toBeDisabled()
+  },
 }
