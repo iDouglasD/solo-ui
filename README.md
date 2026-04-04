@@ -1,132 +1,76 @@
 # solo-ui
 
-A modern React design system for building beautiful, accessible user interfaces at scale.
+React design system built with CVA, Tailwind CSS v4, and TypeScript.
 
-solo-ui provides a comprehensive collection of unstyled, composable component primitives built on Base UI, styled with class-variance-authority (CVA) for flexible variant-based theming. Designed for design teams and developers who want maximum control over component behavior and appearance.
+## Packages
 
-## Features
+| Package | Description |
+|---------|-------------|
+| `@solo-ds/ui` | React component library |
+| `@solo-ds/tokens` | Design tokens (TS + CSS variables) |
+| `@solo-ds/ts-config` | Shared TypeScript configs |
+| `@solo-ds/lint-config` | Shared Biome configs |
 
-- **Headless Components** — Unstyled, accessible primitives from Base UI
-- **Variant-Based Styling** — CVA for predictable, composable component variants
-- **TypeScript First** — Fully typed for excellent developer experience
-- **Design Tokens** — Centralized design token system for consistency
-- **Documentation** — Storybook for interactive component exploration
-- **Monorepo** — Turborepo structure for independent package versioning and publishing
-
-## Getting Started
+## Usage
 
 ### Installation
 
 ```bash
-npm install @solo-ds/react @solo-ds/tokens
+pnpm add @solo-ds/ui @solo-ds/tokens
 ```
 
-Or with pnpm (recommended):
+### Setup
 
-```bash
-pnpm add @solo-ds/react @solo-ds/tokens
+Import the styles in your app entry point:
+
+```css
+@import '@solo-ds/tokens/styles/tokens.css';
+@import '@solo-ds/ui/styles.css';
 ```
 
-### Basic Usage
+### Components
 
 ```tsx
-import { Button } from '@solo-ds/react'
+import { Button } from '@solo-ds/ui'
 
 export function App() {
   return <Button variant="primary">Click me</Button>
 }
 ```
 
-## Packages
+### Tokens (TypeScript)
 
-| Package | Description | Status |
-|---------|-------------|--------|
-| `@solo-ds/react` | Component library | Published |
-| `@solo-ds/tokens` | Design tokens | Published |
-| `@solo-ds/ts-config` | Shared TypeScript configs | Published |
-| `@solo-ds/lint-config` | Shared Biome configs | Published |
-| `@solo-ds/docs` | Storybook documentation | Private |
+```ts
+import { colors } from '@solo-ds/tokens'
+```
 
 ## Development
 
-### Prerequisites
-
-- **Node.js** 18+
-- **pnpm** 10.7+
-
-### Scripts
+**Requirements:** Node.js 18+, pnpm 10.7+
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Build all packages
-pnpm build
-
-# Run Storybook
-pnpm dev
-
-# Lint all packages
-pnpm lint
-
-# Format code
-pnpm format
+pnpm install       # install dependencies
+pnpm dev           # Storybook dev server
+pnpm build         # build all packages
+pnpm lint          # lint all packages
+pnpm format        # format all packages
 ```
-
-### Architecture
-
-solo-ui is organized as a Turborepo monorepo with 5 packages:
-
-- **Config packages** (`ts-config`, `lint-config`) — Shared configuration consumed by all other packages
-- **Token package** (`tokens`) — Design tokens as TypeScript objects and CSS variables
-- **Component library** (`react`) — React components built with Base UI and CVA
-- **Documentation** (`docs`) — Storybook for component stories and usage examples
-
-The build pipeline is topologically ordered: tokens are built first, then react (which depends on tokens), then docs. Biome handles linting and formatting across all packages.
-
-## Tech Stack
-
-- **Build System:** Turborepo
-- **Package Manager:** pnpm
-- **Bundler:** tsup (ESM + CJS)
-- **Component Primitives:** Base UI
-- **Styling:** CVA + Tailwind CSS (recommended)
-- **Type Checking:** TypeScript 6.0
-- **Linting & Formatting:** Biome
-- **Documentation:** Storybook 10
-- **Versioning:** Changesets (fixed versioning)
-
-## Philosophy
-
-solo-ui is built on the principle of **composition over prescription**. We provide unstyled, accessible component primitives that you style to match your brand. This approach offers maximum flexibility while maintaining a consistent component API across your application.
-
-The design system prioritizes:
-
-- **Accessibility** — WCAG 2.1 compliant components
-- **Composition** — Components work together seamlessly
-- **Type Safety** — Full TypeScript support
-- **Performance** — Tree-shakeable, minimal bundle impact
-- **Maintainability** — Clear patterns and conventions
 
 ## Publishing
 
-Releases follow Semantic Versioning using Changesets. All packages version together (fixed versioning) to ensure compatibility.
+Releases use [Changesets](https://github.com/changesets/changesets) with fixed versioning — all public packages version together.
 
 ```bash
-# Add a changeset
+# 1. Document your changes
 pnpm changeset
 
-# Version all packages
+# 2. Bump versions
 pnpm version-packages
 
-# Publish to NPM
+# 3. Publish to NPM
 pnpm release
 ```
 
 ## License
 
 MIT
-
-## Contributing
-
-See [CLAUDE.md](./CLAUDE.md) for development conventions and guidelines.
