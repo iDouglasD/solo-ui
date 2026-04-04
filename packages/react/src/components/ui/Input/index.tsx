@@ -1,6 +1,6 @@
+import { cva, type VariantProps } from 'class-variance-authority'
 import type React from 'react'
 import { createContext, useContext } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../../lib/cn'
 
 // ─── Variants ────────────────────────────────────────────────────────────────
@@ -67,10 +67,11 @@ function InputField({ state, className, children, ...rest }: InputFieldProps) {
 
 // ─── InputLabel ──────────────────────────────────────────────────────────────
 
-interface InputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> { }
+interface InputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
 
 function InputLabel({ className, children, ...rest }: InputLabelProps) {
   return (
+    // biome-ignore lint/a11y/noLabelWithoutControl: htmlFor is passed via rest props by the consumer
     <label className={cn('font-mono text-xs text-subtle', className)} {...rest}>
       {children}
     </label>
@@ -85,7 +86,7 @@ const hintColors: Record<'default' | 'error' | 'success', string> = {
   success: 'text-green',
 }
 
-interface InputHintProps extends React.HTMLAttributes<HTMLParagraphElement> { }
+interface InputHintProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 
 function InputHint({ className, children, ...rest }: InputHintProps) {
   const { state } = useContext(InputFieldContext)
@@ -106,7 +107,7 @@ function InputHint({ className, children, ...rest }: InputHintProps) {
 
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-  Pick<VariantProps<typeof inputVariants>, 'size'> {
+    Pick<VariantProps<typeof inputVariants>, 'size'> {
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
 }
@@ -141,13 +142,20 @@ function Input({ className, size, leftIcon, rightIcon, ...rest }: InputProps) {
   return (
     <div className="relative flex w-full items-center">
       {leftIcon && (
-        <span className={cn('pointer-events-none absolute flex shrink-0 items-center text-muted', left)}>
+        <span
+          className={cn('pointer-events-none absolute flex shrink-0 items-center text-muted', left)}
+        >
           {leftIcon}
         </span>
       )}
       {inputEl}
       {rightIcon && (
-        <span className={cn('pointer-events-none absolute flex shrink-0 items-center text-muted', right)}>
+        <span
+          className={cn(
+            'pointer-events-none absolute flex shrink-0 items-center text-muted',
+            right,
+          )}
+        >
           {rightIcon}
         </span>
       )}
@@ -157,5 +165,5 @@ function Input({ className, size, leftIcon, rightIcon, ...rest }: InputProps) {
 
 // ─── Exports ─────────────────────────────────────────────────────────────────
 
-export type { InputFieldProps, InputLabelProps, InputHintProps, InputProps }
-export { InputField, InputLabel, InputHint, Input, inputVariants }
+export type { InputFieldProps, InputHintProps, InputLabelProps, InputProps }
+export { Input, InputField, InputHint, InputLabel, inputVariants }

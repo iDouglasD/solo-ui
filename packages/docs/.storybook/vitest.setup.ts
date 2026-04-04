@@ -2,4 +2,4 @@ import { setProjectAnnotations } from '@storybook/react-vite'
 import * as previewAnnotations from './preview'
 
 const annotations = setProjectAnnotations([previewAnnotations])
-export const { beforeAll, afterAll } = annotations
+export const { beforeAll } = annotations

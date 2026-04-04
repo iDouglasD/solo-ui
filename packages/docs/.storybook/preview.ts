@@ -1,6 +1,6 @@
 import '../styles.css'
-import { create } from 'storybook/theming/create'
 import type { Preview } from '@storybook/react'
+import { create } from 'storybook/theming/create'
 
 const darkTheme = create({
   base: 'dark',
