@@ -1,5 +1,12 @@
 # @solo-ds/ui
 
+## 1.0.1
+
+### Patch Changes
+
+- 5606471: docs: update package README and installation instructions
+  - @solo-ds/tokens@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
