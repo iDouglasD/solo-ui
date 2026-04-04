@@ -9,7 +9,7 @@ import { Meta } from '@storybook/addon-docs/blocks'
     <p className="text-border tracking-widest mb-4">● ● ●</p>
     <p className="mb-2">
       <span className="text-accent text-2xl">❯</span>
-      <span className="text-primary text-2xl font-bold ml-2">solo-ui</span>
+      <span className="text-primary text-2xl font-bold pl-2">solo-ui</span>
     </p>
     <p className="text-muted text-sm pl-7">
       A minimal React design system built for solo projects.
@@ -20,23 +20,25 @@ import { Meta } from '@storybook/addon-docs/blocks'
   <div className="border-t border-border pt-8 mb-10">
     <p className="text-subtle text-xs tracking-widest mb-4">$ install</p>
     <div className="bg-elevated rounded-lg px-4 py-3 text-sm">
-      <p>
+      <div className='flex items-center gap-2'>
         <span className="text-accent">$</span>
         <span className="text-primary ml-2">pnpm add @solo-ds/ui @solo-ds/tokens</span>
-      </p>
-      <p className="text-muted mt-3 mb-1"># then import the styles</p>
-      <p>
+      </div>
+      <div className='flex items-center gap-2 pt-3'>
+        <span className="text-muted"># then import the styles</span>
+      </div>
+      <div className='flex items-center gap-2'>
         <span className="text-accent">$</span>
-        <span className="text-primary ml-2">
+        <span className="text-primary">
           @import <span className="text-subtle">'@solo-ds/tokens/styles/tokens.css'</span>;
         </span>
-      </p>
-      <p>
+      </div>
+      <div className='flex items-center gap-2'>
         <span className="text-accent">$</span>
-        <span className="text-primary ml-2">
+        <span className="text-primary">
           @import <span className="text-subtle">'@solo-ds/ui/styles.css'</span>;
         </span>
-      </p>
+      </div>
     </div>
   </div>
 
@@ -47,27 +49,27 @@ import { Meta } from '@storybook/addon-docs/blocks'
       <p>
         <span className="text-border mr-2">├─</span>
         <span className="text-primary">Button</span>
-        <span className="text-muted ml-3 text-xs">6 variants · 3 sizes · loading state · icon slot</span>
+        <span className="text-muted pl-3 text-xs">6 variants · 3 sizes · loading state · icon slot</span>
       </p>
       <p>
         <span className="text-border mr-2">├─</span>
         <span className="text-primary">Input</span>
-        <span className="text-muted ml-3 text-xs">3 states · 3 sizes · icon slots · field system</span>
+        <span className="text-muted pl-3 text-xs">3 states · 3 sizes · icon slots · field system</span>
       </p>
       <p>
         <span className="text-border mr-2">├─</span>
         <span className="text-primary">Card</span>
-        <span className="text-muted ml-3 text-xs">header · content · footer slots</span>
+        <span className="text-muted pl-3 text-xs">header · content · footer slots</span>
       </p>
       <p>
         <span className="text-border mr-2">├─</span>
         <span className="text-primary">Badge</span>
-        <span className="text-muted ml-3 text-xs">5 variants · 2 sizes</span>
+        <span className="text-muted pl-3 text-xs">5 variants · 2 sizes</span>
       </p>
       <p>
         <span className="text-border mr-2">└─</span>
         <span className="text-primary">Table</span>
-        <span className="text-muted ml-3 text-xs">composable rows + cells</span>
+        <span className="text-muted pl-3 text-xs">composable rows + cells</span>
       </p>
     </div>
   </div>
