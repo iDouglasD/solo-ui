@@ -1,6 +1,6 @@
+import { cva, type VariantProps } from 'class-variance-authority'
 import type React from 'react'
 import { createContext, useContext } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../../lib/cn'
 
 // ─── Variants ────────────────────────────────────────────────────────────────
@@ -71,6 +71,7 @@ interface InputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
 
 function InputLabel({ className, children, ...rest }: InputLabelProps) {
   return (
+    // biome-ignore lint/a11y/noLabelWithoutControl: htmlFor is passed via rest props by the consumer
     <label className={cn('font-mono text-xs text-subtle', className)} {...rest}>
       {children}
     </label>
@@ -164,5 +165,5 @@ function Input({ className, size, leftIcon, rightIcon, ...rest }: InputProps) {
 
 // ─── Exports ─────────────────────────────────────────────────────────────────
 
-export type { InputFieldProps, InputLabelProps, InputHintProps, InputProps }
-export { InputField, InputLabel, InputHint, Input, inputVariants }
+export type { InputFieldProps, InputHintProps, InputLabelProps, InputProps }
+export { Input, InputField, InputHint, InputLabel, inputVariants }
